@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Vida : MonoBehaviour
 {
     [SerializeField] private GameObject telaMorte;
-
-    [SerializeField] private Image atual;
+    [SerializeField] private BarraVida barraVida;
     [SerializeField] private float vidaTotal;
     private float vidaAtual;
 
@@ -18,15 +17,13 @@ public class Vida : MonoBehaviour
 
     private void Awake()
     {
-        atual.fillAmount = 1;
         vidaAtual = vidaTotal;
+        barraVida.DefinirVidaMax((int)vidaTotal);
     }
 
     // Update is called once per frame
     void Update()
     {
-        atual.fillAmount = vidaAtual / vidaTotal;
-
         invencibilidade += Time.deltaTime;
     }
 
@@ -34,7 +31,8 @@ public class Vida : MonoBehaviour
     {
         if(invencibilidade>iFrame)
         {
-            vidaAtual = Mathf.Clamp(vidaAtual - _dano, 0, vidaTotal);
+            vidaAtual -= _dano;
+            barraVida.DefinirVida((int)vidaAtual);
             invencibilidade = 0f;
         }
 
