@@ -102,5 +102,10 @@ public class Tiros : MonoBehaviour
             default: 
                 break;
         }
+
+        // pegar o outro gameobject
+        //vX = GetComponent<Posicao_Tiros>().bala[posicao].transform.position.x;
     }
+
+
 }

@@ -9,7 +9,7 @@ public class Posicao_Tiros : MonoBehaviour
     public GameObject[] bala;
 
     public float coolDown;
-    private int contador = 0;
+    private int contadorAlternado = 0;
 
 
     void Start()
@@ -19,36 +19,41 @@ public class Posicao_Tiros : MonoBehaviour
 
     void Update()
     {
-        PrimeiraFase();
+        AtaqueAlternado();
     }
 
-    private void PrimeiraFase()
+    private void AtaqueAlternado()
     {
         if (coolDown <= 0f)
         {
-            if (contador == 0)
+            if (contadorAlternado == 15)
+            {
+                return;
+            }
+
+            if (contadorAlternado % 3 == 0)
             {
                 inicioTiro(posicao[2], 2);
                 inicioTiro(posicao[5], 5);
                 inicioTiro(posicao[8], 8);
                 inicioTiro(posicao[11], 11);
-                contador = 1;
+                contadorAlternado += 1;
             }
-            else if(contador == 1)
+            else if(contadorAlternado % 3 == 1)
             {
                 inicioTiro(posicao[1], 1);
                 inicioTiro(posicao[4], 4);
                 inicioTiro(posicao[7], 7);
                 inicioTiro(posicao[10], 10);
-                contador = 2;
+                contadorAlternado += 1;
             }
-            else if(contador == 2)
+            else if(contadorAlternado % 3 == 2)
             {
                 inicioTiro(posicao[0], 0);
                 inicioTiro(posicao[3], 3);
                 inicioTiro(posicao[6], 6);
                 inicioTiro(posicao[9], 9);
-                contador = 0;
+                contadorAlternado += 1;
             }
             coolDown = 0.7f;
         }
