@@ -8,8 +8,14 @@ public class Posicao_Tiros : MonoBehaviour
 
     public GameObject[] bala;
 
-    public float coolDown;
+    public GameObject[] carregado;
+
+    private float coolDown;
+
+    [SerializeField] private float maxCooldown;
+
     private int contadorAlternado = 0;
+    private bool inicioCarregado = false;
 
 
     void Start()
@@ -19,7 +25,9 @@ public class Posicao_Tiros : MonoBehaviour
 
     void Update()
     {
+        coolDown -= Time.deltaTime;
         AtaqueAlternado();
+        AtaqueCarregado();
     }
 
     private void AtaqueAlternado()
@@ -28,6 +36,7 @@ public class Posicao_Tiros : MonoBehaviour
         {
             if (contadorAlternado == 15)
             {
+                inicioCarregado = true;
                 return;
             }
 
@@ -55,10 +64,21 @@ public class Posicao_Tiros : MonoBehaviour
                 inicioTiro(posicao[9], 9);
                 contadorAlternado += 1;
             }
-            coolDown = 0.7f;
+            coolDown = maxCooldown;
         }
+    }
 
-        coolDown -= Time.deltaTime;
+    private void AtaqueCarregado()
+    {
+        if(coolDown <= 0f && inicioCarregado)
+        {
+            tiroCarregado(posicao[2], 2);
+            tiroCarregado(posicao[5], 5);
+            tiroCarregado(posicao[8], 8);
+            tiroCarregado(posicao[11], 11);
+            coolDown = 7f;
+            contadorAlternado = 0;
+        }
     }
 
     private void inicioTiro(Transform posicao, int num)
@@ -67,16 +87,10 @@ public class Posicao_Tiros : MonoBehaviour
         bala[PoolTiros()].GetComponent<Tiros>().Ativar(num);
     }
 
-    public float dadosTiro(/*Transform posicao*/char eixo)
+    private void tiroCarregado(Transform posicao, int num)
     {
-        float v = 0;
-
-        if (eixo == 'x')
-            v = posicao[3].position.x;
-        else if (eixo == 'y')
-            v = posicao[3].position.y;
-
-        return v;
+        carregado[PoolCarregado()].transform.position = posicao.position;
+        carregado[PoolCarregado()].GetComponent<Tiro_Carregado>().Ativar(num);
     }
 
     private int PoolTiros()
@@ -84,6 +98,17 @@ public class Posicao_Tiros : MonoBehaviour
         for (int i = 0; i < bala.Length; i++)
         {
             if (!bala[i].activeInHierarchy)
+                return i;
+        }
+
+        return 0;
+    }
+
+    private int PoolCarregado()
+    {
+        for (int i = 0; i < carregado.Length; i++)
+        {
+            if (!carregado[i].activeInHierarchy)
                 return i;
         }
 

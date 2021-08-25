@@ -7,6 +7,9 @@ public class Tiros : MonoBehaviour
 {
     [SerializeField] private float velocidadeTiro;
     [SerializeField] private float dano;
+    private GameObject inimigo;
+    private Posicao_Tiros pScript;
+
     private float vX;
     private float vY;
 
@@ -15,6 +18,8 @@ public class Tiros : MonoBehaviour
     private void Awake()
     {
         colisao = GetComponent<CircleCollider2D>();
+        inimigo = GameObject.Find("Inimigo");
+        pScript = inimigo.GetComponent<Posicao_Tiros>();
     }
 
     void Update()
@@ -45,6 +50,13 @@ public class Tiros : MonoBehaviour
         gameObject.SetActive(true);
         colisao.enabled = true;
         vEixo(num);
+    }
+
+    public void Explodir(int num)
+    {
+        gameObject.SetActive(true);
+        colisao.enabled = true;
+        Cabum(num);
     }
 
     private void vEixo(int posicao)
@@ -103,9 +115,45 @@ public class Tiros : MonoBehaviour
                 break;
         }
 
-        // pegar o outro gameobject
-        //vX = GetComponent<Posicao_Tiros>().bala[posicao].transform.position.x;
+        // velocidade errada pacas
+        //Vector2 posicaoRelativa = inimigo.transform.InverseTransformPoint(pScript.bala[posicao].transform.position);
+
+        /*Vector2 distancia = pScript.bala[posicao].transform.position - inimigo.transform.position;
+
+        vX = Vector3.Dot(distancia, inimigo.transform.right.normalized);
+        vY = Vector3.Dot(distancia, inimigo.transform.up.normalized);*/
     }
 
-
+    private void Cabum(int posicao)
+    {
+        switch(posicao)
+        {
+            case 0:
+                vX = 0.6f;
+                vY = 0f;
+                break;
+            case 1:
+                vX = 0.3f;
+                vY = 0.519615f;
+                break;
+            case 2:
+                vX = -0.3f;
+                vY = 0.519615f;
+                break;
+            case 3:
+                vX = -0.6f;
+                vY = 0f;
+                break;
+            case 4:
+                vX = 0.3f;
+                vY = -0.519615f;
+                break;
+            case 5:
+                vX = -0.3f;
+                vY = -0.519615f;
+                break;
+            default:
+                break;
+        }
+    }
 }
