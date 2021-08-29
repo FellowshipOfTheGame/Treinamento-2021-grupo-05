@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &269562
 CircleCollider2D:
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &20958342
 CircleCollider2D:
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &69903464
 CircleCollider2D:
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &159938106
 CircleCollider2D:
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &243758601
 CircleCollider2D:
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &264969639
 CircleCollider2D:
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &337993175
 CircleCollider2D:
@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 342747396}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Canvas
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,7 +1460,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &410803954
 CircleCollider2D:
@@ -1773,7 +1773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &417956675
 CircleCollider2D:
@@ -2047,7 +2047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &477313205
 CircleCollider2D:
@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &679125869
 CircleCollider2D:
@@ -3098,7 +3098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &753312765
 CircleCollider2D:
@@ -3212,7 +3212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &773611657
 CircleCollider2D:
@@ -3356,7 +3356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &826120857
 CircleCollider2D:
@@ -3744,7 +3744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &919895985
 CircleCollider2D:
@@ -3972,7 +3972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &988401696
 CircleCollider2D:
@@ -4065,11 +4065,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994392053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5072072, y: -2.3843973, z: -10.901651}
+  m_LocalPosition: {x: 0, y: 0, z: -10.901651}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1642579630}
   - {fileID: 1102814930}
+  - {fileID: 2145630796}
+  - {fileID: 1347703023}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4206,7 +4208,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1102814929}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.66, y: 6.16, z: 0}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 994392054}
@@ -4257,7 +4259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1108166402
 CircleCollider2D:
@@ -4371,7 +4373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1110000054
 CircleCollider2D:
@@ -4545,7 +4547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1157785766
 CircleCollider2D:
@@ -4689,7 +4691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1197302459
 CircleCollider2D:
@@ -4803,7 +4805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1200531477
 CircleCollider2D:
@@ -4917,7 +4919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1220611669
 CircleCollider2D:
@@ -5081,7 +5083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1327119838
 CircleCollider2D:
@@ -5150,6 +5152,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1347703022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347703023}
+  m_Layer: 0
+  m_Name: Ponto D
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347703023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347703022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 994392054}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362506504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,7 +5227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1362506507
 CircleCollider2D:
@@ -5493,7 +5525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1388879688
 CircleCollider2D:
@@ -5607,7 +5639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1390524791
 CircleCollider2D:
@@ -5721,7 +5753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1394655446
 CircleCollider2D:
@@ -5852,7 +5884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410941398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -431.99997, z: 1}
+  m_LocalPosition: {x: 0, y: -431.99997, z: -9766.372}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_Children:
   - {fileID: 346865616}
@@ -5872,12 +5904,10 @@ GameObject:
   - component: {fileID: 1415155639}
   - component: {fileID: 1415155641}
   - component: {fileID: 1415155642}
-  - component: {fileID: 1415155645}
-  - component: {fileID: 1415155644}
   - component: {fileID: 1415155643}
   m_Layer: 0
   m_Name: Inimigo
-  m_TagString: Inimigo
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5941,7 +5971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415155638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.16, y: 3.77, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 1533275843}
@@ -6036,7 +6066,7 @@ MonoBehaviour:
   - {fileID: 299696629}
   - {fileID: 1721098063}
   - {fileID: 1868973599}
-  maxCooldown: 1
+  maxCooldown: 0.7
 --- !u!114 &1415155642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6050,9 +6080,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadeMovimento: 0.01
-  pontoA: {fileID: 1642579630}
-  pontoB: {fileID: 1102814930}
+  ponto:
+  - {fileID: 1642579630}
+  - {fileID: 1102814930}
+  - {fileID: 2145630796}
+  - {fileID: 1347703023}
   dano: 1
+  tempoEspera: 0
 --- !u!58 &1415155643
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6143,7 +6177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1430383224
 CircleCollider2D:
@@ -6257,7 +6291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1431667972
 CircleCollider2D:
@@ -6371,7 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1480700973
 CircleCollider2D:
@@ -6515,7 +6549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1603640936
 CircleCollider2D:
@@ -6695,7 +6729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1620903679
 CircleCollider2D:
@@ -6776,7 +6810,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ponto A
   m_TagString: Untagged
-  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -6788,7 +6822,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642579629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.79, y: 4.82, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 994392054}
@@ -7015,7 +7049,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   velocidadeTiro: 5
+=======
+  velocidadeTiro: 8
+>>>>>>> main
   dano: 1
 --- !u!1 &1721098063
 GameObject:
@@ -7252,7 +7290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   velocidadeTiro: 5
+=======
+  velocidadeTiro: 8
+>>>>>>> main
   dano: 1
 --- !u!58 &1845941190
 CircleCollider2D:
@@ -7366,7 +7408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1866212252
 CircleCollider2D:
@@ -7650,7 +7692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888647939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: -9719.999}
   m_LocalScale: {x: 1920, y: 1080, z: 108}
   m_Children:
   - {fileID: 1101684686}
@@ -7753,7 +7795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1900610878
 CircleCollider2D:
@@ -7867,7 +7909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &1935258240
 CircleCollider2D:
@@ -8349,7 +8391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2014294967
 CircleCollider2D:
@@ -8463,7 +8505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2027223654
 CircleCollider2D:
@@ -8577,7 +8619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2028152714
 CircleCollider2D:
@@ -8691,7 +8733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2065273324
 CircleCollider2D:
@@ -8805,7 +8847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2077090662
 CircleCollider2D:
@@ -9050,7 +9092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4018bc8482eca3d43a6b24bee3d4ded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadeTiro: 5
+  velocidadeTiro: 8
   dano: 1
 --- !u!58 &2090797994
 CircleCollider2D:
@@ -9192,4 +9234,34 @@ Transform:
   - {fileID: 753312763}
   m_Father: {fileID: 830207589}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2145630795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145630796}
+  m_Layer: 0
+  m_Name: Ponto C
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2145630796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145630795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 994392054}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
