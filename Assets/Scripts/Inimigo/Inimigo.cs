@@ -15,10 +15,10 @@ public class Inimigo : MonoBehaviour
         bossVida.DefinirVidaMax(vida);
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
     public void LevarDano(int dano)
@@ -26,7 +26,7 @@ public class Inimigo : MonoBehaviour
         vida -= dano;
         popup.Criar(transform.position, dano);
         bossVida.DefinirVida(vida);
-        if(vida <= 0)
+        if (vida <= 0)
         {
             Morto();
         }

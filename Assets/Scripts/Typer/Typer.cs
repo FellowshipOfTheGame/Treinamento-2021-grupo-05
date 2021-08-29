@@ -5,13 +5,20 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
+
     [SerializeField] private Text textTyper;
     [SerializeField] private BancoPalavras banco;
-    [SerializeField] private Inimigo boss;
+    private GameObject boss;
+    private Inimigo bossScript;
     public int danoPalavra = 10;
     private string palavraAtual = string.Empty;
     private string palavraRestante = string.Empty;
 
+    private void Awake()
+    {
+        boss = GameObject.FindGameObjectWithTag("Inimigo");
+        bossScript = boss.GetComponent<Inimigo>();
+    }
     private void Start()
     {
         AgregarPalavraAtual();
@@ -49,7 +56,7 @@ public class Typer : MonoBehaviour
             RemoverLetra();
             if (PalavraAcabou())
             {
-                boss.LevarDano(danoPalavra);
+                bossScript.LevarDano(danoPalavra);
                 AgregarPalavraAtual();
             }
         }
@@ -65,5 +72,6 @@ public class Typer : MonoBehaviour
         string newString = palavraRestante.Remove(0, 1);
         AgregarPalavraRestante(newString);
     }
+
 
 }

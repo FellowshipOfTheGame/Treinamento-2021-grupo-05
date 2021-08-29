@@ -12,7 +12,7 @@ public class PopupDano : MonoBehaviour
     public PopupDano Criar(Vector3 position, int damagemAmount)
     {
         position = PosicaoAleatoria(position);
-        Transform popupDanoTransform = Instantiate(danoPopup, position, Quaternion.identity);
+        Transform popupDanoTransform = Instantiate(GameAssets.i.pfDamagePopup, position, Quaternion.identity);
 
         PopupDano PopupDano = popupDanoTransform.GetComponent<PopupDano>();
         PopupDano.Setup(damagemAmount);
