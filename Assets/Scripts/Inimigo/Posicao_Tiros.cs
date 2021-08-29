@@ -8,70 +8,184 @@ public class Posicao_Tiros : MonoBehaviour
 
     public GameObject[] bala;
 
-    public float coolDown;
-    private int contador = 0;
+    public GameObject[] carregado;
+
+    private Movimento_Inimigo movimentoScript;
+
+    private float coolDown;
+
+    [SerializeField] private float maxCooldown;
+
+    private int contadorAlternado = 0;
+    private bool inicioCarregado = false;
+
+    private int contadorBurst = 0;
+    private int numTiros = 0;
+
+    private bool fimAtaque = true;
+    int ataque;
 
 
-    void Start()
+    void Awake()
     {
-        
+        movimentoScript = GetComponent<Movimento_Inimigo>();
     }
 
     void Update()
     {
-        PrimeiraFase();
+        coolDown -= Time.deltaTime;
+
+        if (fimAtaque)
+        {
+            ataque = Random.Range(0, 2);
+            fimAtaque = false;
+        }
+
+        if(!fimAtaque)
+        {
+            switch(ataque)
+            {
+                case 0:
+                    AtaqueAlternado();
+                    break;
+                case 1:
+                    AtaqueBurst();
+                    break;
+                default:
+                    break;
+            }
+        }
+        //AtaqueCarregado();
     }
 
-    private void PrimeiraFase()
+    private void AtaqueAlternado()
     {
         if (coolDown <= 0f)
         {
-            if (contador == 0)
+            if (contadorAlternado == 15)
+            {
+                contadorAlternado = 0;
+                fimAtaque = true;
+                return;
+            }
+
+            if (contadorAlternado % 3 == 0)
             {
                 inicioTiro(posicao[2], 2);
                 inicioTiro(posicao[5], 5);
                 inicioTiro(posicao[8], 8);
                 inicioTiro(posicao[11], 11);
-                contador = 1;
+                contadorAlternado += 1;
             }
-            else if(contador == 1)
+            else if(contadorAlternado % 3 == 1)
             {
                 inicioTiro(posicao[1], 1);
                 inicioTiro(posicao[4], 4);
                 inicioTiro(posicao[7], 7);
                 inicioTiro(posicao[10], 10);
-                contador = 2;
+                contadorAlternado += 1;
             }
-            else if(contador == 2)
+            else if(contadorAlternado % 3 == 2)
             {
                 inicioTiro(posicao[0], 0);
                 inicioTiro(posicao[3], 3);
                 inicioTiro(posicao[6], 6);
                 inicioTiro(posicao[9], 9);
-                contador = 0;
+                contadorAlternado += 1;
             }
-            coolDown = 0.7f;
+            coolDown = maxCooldown;
         }
+    }
 
-        coolDown -= Time.deltaTime;
+    private void AtaqueBurst()
+    {
+        // falta criar o algoritmo para atirar varias balas seguidas
+
+        if (coolDown <= 0f)
+        {
+            if (contadorBurst == 6)
+            {
+                contadorBurst = 0;
+                fimAtaque = true;
+                return;
+            }
+
+            if (contadorBurst % 2 == 0)
+            {
+                if (numTiros < 3)
+                {
+                    inicioTiro(posicao[10], 10);
+                    inicioTiro(posicao[11], 11);
+                    inicioTiro(posicao[0], 0);
+
+                    inicioTiro(posicao[4], 4);
+                    inicioTiro(posicao[5], 5);
+                    inicioTiro(posicao[6], 6);
+
+                    numTiros++;
+
+                    coolDown = maxCooldown / 4;
+                }
+                else
+                {
+                    coolDown = maxCooldown;
+                    contadorBurst += 1;
+                    numTiros = 0;
+                }
+            }
+            else
+            {
+
+                if (numTiros < 3)
+                {
+                    inicioTiro(posicao[1], 1);
+                    inicioTiro(posicao[2], 2);
+                    inicioTiro(posicao[3], 3);
+
+                    inicioTiro(posicao[7], 7);
+                    inicioTiro(posicao[8], 8);
+                    inicioTiro(posicao[9], 9);
+
+                    numTiros++;
+
+                    coolDown = maxCooldown / 4;
+                }
+                else
+                {
+                    contadorBurst += 1;
+                    numTiros = 0;
+                    coolDown = maxCooldown;
+                }
+            }
+        }
+    }
+
+    private void AtaqueCarregado()
+    {
+        if(coolDown <= 0f && inicioCarregado)
+        {
+            tiroCarregado(posicao[2], 2);
+            tiroCarregado(posicao[5], 5);
+            tiroCarregado(posicao[8], 8);
+            tiroCarregado(posicao[11], 11);
+            coolDown = 5f;
+            movimentoScript.tempoEspera = 5f;
+            contadorAlternado = 0;
+        }
     }
 
     private void inicioTiro(Transform posicao, int num)
     {
+        // num representa a posicao de inicio do tiro, em que num = hora do relogio - 1
+
         bala[PoolTiros()].transform.position = posicao.position;
         bala[PoolTiros()].GetComponent<Tiros>().Ativar(num);
     }
 
-    public float dadosTiro(/*Transform posicao*/char eixo)
+    private void tiroCarregado(Transform posicao, int num)
     {
-        float v = 0;
-
-        if (eixo == 'x')
-            v = posicao[3].position.x;
-        else if (eixo == 'y')
-            v = posicao[3].position.y;
-
-        return v;
+        carregado[PoolCarregado()].transform.position = posicao.position;
+        carregado[PoolCarregado()].GetComponent<Tiro_Carregado>().Ativar(num);
     }
 
     private int PoolTiros()
@@ -79,6 +193,17 @@ public class Posicao_Tiros : MonoBehaviour
         for (int i = 0; i < bala.Length; i++)
         {
             if (!bala[i].activeInHierarchy)
+                return i;
+        }
+
+        return 0;
+    }
+
+    private int PoolCarregado()
+    {
+        for (int i = 0; i < carregado.Length; i++)
+        {
+            if (!carregado[i].activeInHierarchy)
                 return i;
         }
 
