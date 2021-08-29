@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Parede
+  - Canvas
+  - Inimigo
   layers:
   - Default
   - TransparentFX
@@ -41,4 +43,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: popup
+    uniqueID: 2032223735
+    locked: 0
+  - name: UI
+    uniqueID: 3583797487
     locked: 0
