@@ -8,7 +8,9 @@ public class Tiros : MonoBehaviour
     [SerializeField] private float velocidadeTiro;
     [SerializeField] private float dano;
     private GameObject inimigo;
+    private GameObject temporizador;
     private Posicao_Tiros pScript;
+    private Timer tScript;
 
     private float vX;
     private float vY;
@@ -20,10 +22,17 @@ public class Tiros : MonoBehaviour
         colisao = GetComponent<CircleCollider2D>();
         inimigo = GameObject.Find("Inimigo");
         pScript = inimigo.GetComponent<Posicao_Tiros>();
+        temporizador = GameObject.Find("Timer");
+        tScript = temporizador.GetComponent<Timer>();
     }
 
     void Update()
     {
+        if(tScript.mododeDano)
+        {
+            gameObject.SetActive(false);
+        }
+
         float velocidadeX = velocidadeTiro * Time.deltaTime * vX;
         float velocidadeY = velocidadeTiro * Time.deltaTime * vY;
         transform.Translate(velocidadeX, velocidadeY, 0);

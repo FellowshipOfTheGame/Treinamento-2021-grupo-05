@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     private Vector3 posicaoOriginalBoss;
     private GameObject typer;
     private float tempoRestante;
-    private bool mododeDano = false;
+    public bool mododeDano = false;
 
     private void Start()
     {
