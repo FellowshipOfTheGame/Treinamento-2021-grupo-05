@@ -63,4 +63,16 @@ public class Movimento_Inimigo : MonoBehaviour
         if(collision.tag == "Player")
             collision.GetComponent<Vida>().Dano(dano);
     }
+
+    public void Fase2()
+    {
+        tempoEspera *= 0.8f;
+        velocidadeMovimento *= 1.2f;
+    }
+
+    public void Fase3()
+    {
+        tempoEspera *= 0.7f;
+        velocidadeMovimento *= 1.3f;
+    }
 }

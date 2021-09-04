@@ -11,6 +11,7 @@ public class Posicao_Tiros : MonoBehaviour
     public GameObject[] carregado;
 
     private Movimento_Inimigo movimentoScript;
+    private Laser laserScript;
 
     private float coolDown;
 
@@ -29,6 +30,7 @@ public class Posicao_Tiros : MonoBehaviour
     void Awake()
     {
         movimentoScript = GetComponent<Movimento_Inimigo>();
+        laserScript = GetComponent<Laser>();
     }
 
     void Update()
@@ -37,7 +39,7 @@ public class Posicao_Tiros : MonoBehaviour
 
         if (fimAtaque)
         {
-            ataque = Random.Range(0, 2);
+            ataque = Random.Range(0, 3);
             fimAtaque = false;
         }
 
@@ -50,6 +52,9 @@ public class Posicao_Tiros : MonoBehaviour
                     break;
                 case 1:
                     AtaqueBurst();
+                    break;
+                case 2:
+                    laserScript.Rand();
                     break;
                 default:
                     break;
