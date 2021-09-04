@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     public float TempoPorTurno = 2f;
     [SerializeField] private Movimento_Inimigo bossMov;
     [SerializeField] private Posicao_Tiros posicaoTiros;
+    [SerializeField] private Laser laser;
     [SerializeField] private Transform player;
     [SerializeField] private Transform boss;
     [SerializeField] private Movimento playerMov;
@@ -53,6 +54,7 @@ public class Timer : MonoBehaviour
         playerRB.velocity = Vector3.zero;
         player.position = (posicaoOriginalPlayer);
         boss.position = (posicaoOriginalBoss);
+        laser.enabled = false;
         bossMov.enabled = false;
         posicaoTiros.enabled = false;
         playerMov.enabled = false;
@@ -62,6 +64,7 @@ public class Timer : MonoBehaviour
     {
         Destroy(typer);
         bossMov.enabled = true;
+        laser.enabled = true;
         posicaoTiros.enabled = true;
         playerMov.enabled = true;
     }

@@ -6,11 +6,15 @@ using UnityEngine;
 public class Tiros : MonoBehaviour
 {
     [SerializeField] private float velocidadeTiro;
+
+    private float bancoVelocidade;
+
     [SerializeField] private float dano;
     private GameObject inimigo;
     private GameObject temporizador;
     private Posicao_Tiros pScript;
     private Timer tScript;
+    private Inimigo iScript;
 
     private float vX;
     private float vY;
@@ -24,12 +28,16 @@ public class Tiros : MonoBehaviour
         pScript = inimigo.GetComponent<Posicao_Tiros>();
         temporizador = GameObject.Find("Timer");
         tScript = temporizador.GetComponent<Timer>();
+        iScript = inimigo.GetComponent<Inimigo>();
+
+        bancoVelocidade = velocidadeTiro;
     }
 
     void Update()
     {
         if(tScript.mododeDano)
         {
+            velocidadeTiro = bancoVelocidade;
             gameObject.SetActive(false);
         }
 
@@ -42,12 +50,14 @@ public class Tiros : MonoBehaviour
     {
         if (collision.tag == "Parede")
         {
+            velocidadeTiro = bancoVelocidade;
             colisao.enabled = false;
             gameObject.SetActive(false);
         }
         // dano
         if (collision.tag == "Player")
         {
+            velocidadeTiro = bancoVelocidade;
             collision.GetComponent<Vida>().Dano(dano);
             colisao.enabled = false;
             gameObject.SetActive(false);
@@ -70,6 +80,15 @@ public class Tiros : MonoBehaviour
 
     private void vEixo(int posicao)
     {
+        if (iScript.Fase2 && !iScript.Fase3)
+        {
+            velocidadeTiro *= 1.3f;
+        }
+        else if (iScript.Fase3)
+        {
+            velocidadeTiro *= 1.8f;
+        }
+
         switch (posicao)
         {
             case 0:
@@ -135,7 +154,12 @@ public class Tiros : MonoBehaviour
 
     private void Cabum(int posicao)
     {
-        switch(posicao)
+        if (iScript.Fase2)
+        {
+            velocidadeTiro *= 1.3f;
+        }
+
+        switch (posicao)
         {
             case 0:
                 vX = 0.6f;
