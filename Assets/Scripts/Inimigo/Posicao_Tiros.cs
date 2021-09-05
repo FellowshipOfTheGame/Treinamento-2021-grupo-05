@@ -10,8 +10,8 @@ public class Posicao_Tiros : MonoBehaviour
 
     public GameObject[] carregado;
 
-    private Movimento_Inimigo movimentoScript;
     private Laser laserScript;
+    [SerializeField] private Timer timerScript;
 
     private float coolDown;
 
@@ -22,6 +22,8 @@ public class Posicao_Tiros : MonoBehaviour
 
     private int contadorBurst = 0;
     private int numTiros = 0;
+    [SerializeField] private int tirosMax;
+    private int numAtaques = 0;
 
     private bool fimAtaque = true;
     int ataque;
@@ -29,7 +31,6 @@ public class Posicao_Tiros : MonoBehaviour
 
     void Awake()
     {
-        movimentoScript = GetComponent<Movimento_Inimigo>();
         laserScript = GetComponent<Laser>();
     }
 
@@ -43,7 +44,7 @@ public class Posicao_Tiros : MonoBehaviour
             fimAtaque = false;
         }
 
-        if(!fimAtaque)
+        if(!fimAtaque && numAtaques<= tirosMax-1)
         {
             switch(ataque)
             {
@@ -60,6 +61,11 @@ public class Posicao_Tiros : MonoBehaviour
                     break;
             }
         }
+        else if(!fimAtaque && numAtaques == tirosMax)
+        {
+            AtaqueCarregado();
+            timerScript.MudarParaTyper();
+        }
         //AtaqueCarregado();
     }
 
@@ -71,6 +77,7 @@ public class Posicao_Tiros : MonoBehaviour
             {
                 contadorAlternado = 0;
                 fimAtaque = true;
+                numAtaques++;
                 return;
             }
 
@@ -112,6 +119,7 @@ public class Posicao_Tiros : MonoBehaviour
             {
                 contadorBurst = 0;
                 fimAtaque = true;
+                numAtaques++;
                 return;
             }
 
@@ -173,10 +181,16 @@ public class Posicao_Tiros : MonoBehaviour
             tiroCarregado(posicao[5], 5);
             tiroCarregado(posicao[8], 8);
             tiroCarregado(posicao[11], 11);
-            coolDown = 5f;
-            movimentoScript.tempoEspera = 5f;
-            contadorAlternado = 0;
+            StartCoroutine(MudancaTyper());
         }
+    }
+
+    private IEnumerator MudancaTyper()
+    {
+        yield return new WaitForSeconds(4f);
+
+        numAtaques = 0;
+        timerScript.MudarParaTyper();
     }
 
     private void inicioTiro(Transform posicao, int num)
