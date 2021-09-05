@@ -3368,7 +3368,9 @@ MonoBehaviour:
   - {fileID: 1735930984}
   - {fileID: 329203868}
   - {fileID: 303346539}
+  timerScript: {fileID: 1509871827}
   maxCooldown: 0.7
+  tirosMax: 3
 --- !u!114 &914024295
 MonoBehaviour:
   m_ObjectHideFlags: 0

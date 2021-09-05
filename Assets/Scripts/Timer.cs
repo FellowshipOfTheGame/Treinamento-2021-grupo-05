@@ -35,12 +35,7 @@ public class Timer : MonoBehaviour
         if (tempoRestante <= 0)
         {
             tempoRestante = TempoPorTurno;
-            if (!mododeDano)
-            {
-                mododeDano = true;
-                MudarParaTyper();
-            }
-            else
+            if (mododeDano)
             {
                 mododeDano = false;
                 MudarParaBulletHell();
@@ -48,7 +43,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void MudarParaTyper()
+    public void MudarParaTyper()
     {
         typer = Instantiate(GameAssets.i.pfTyper);
         playerRB.velocity = Vector3.zero;
@@ -58,6 +53,8 @@ public class Timer : MonoBehaviour
         bossMov.enabled = false;
         posicaoTiros.enabled = false;
         playerMov.enabled = false;
+
+        tempoRestante = TempoPorTurno;
     }
 
     private void MudarParaBulletHell()
