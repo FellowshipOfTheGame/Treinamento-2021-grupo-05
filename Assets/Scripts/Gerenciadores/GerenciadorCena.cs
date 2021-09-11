@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GerenciadorCena : MonoBehaviour
 {
     public static GerenciadorCena instancia;
     private GerenciadorSom gerenciadorSom;
+    [SerializeField] private GameObject abertura;
+    [SerializeField] private GameObject imagemTrocaCena;
 
     private void Awake()
     {
@@ -27,8 +30,17 @@ public class GerenciadorCena : MonoBehaviour
 
     public void IniciarGameScene()
     {
-        gerenciadorSom.TrocarMusica("boss1");
         gerenciadorSom.TocarEfeito("botao");
-        SceneManager.LoadScene("BulletHell");
+        abertura.SetActive(true);
+
+        StartCoroutine(Esperar());
+    }
+
+    private IEnumerator Esperar()
+    {
+        yield return new WaitForSeconds(1f);
+
+        imagemTrocaCena.SetActive(true);
+        SceneManager.LoadScene("Rodrigo");
     }
 }
