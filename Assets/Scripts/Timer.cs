@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float TempoPorTurno = 2f;
+    [SerializeField] private float TempoPorTurno;
     [SerializeField] private Movimento_Inimigo bossMov;
+    private GameObject inimigo;
     [SerializeField] private Posicao_Tiros posicaoTiros;
     [SerializeField] private Laser laser;
     [SerializeField] private Transform player;
@@ -18,6 +19,12 @@ public class Timer : MonoBehaviour
     private float tempoRestante;
     public bool mododeDano = false;
 
+    private void Awake()
+    {
+        inimigo = GameObject.FindGameObjectWithTag("Inimigo");
+        laser = inimigo.GetComponent<Laser>();
+    }
+
     private void Start()
     {
         posicaoOriginalBoss = boss.position;
@@ -28,10 +35,7 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if (tempoRestante > 0)
-        {
-            tempoRestante -= Time.deltaTime;
-        }
+        tempoRestante -= Time.deltaTime;
         if (tempoRestante <= 0)
         {
             tempoRestante = TempoPorTurno;
@@ -54,6 +58,7 @@ public class Timer : MonoBehaviour
         posicaoTiros.enabled = false;
         playerMov.enabled = false;
 
+        mododeDano = true;
         tempoRestante = TempoPorTurno;
     }
 
@@ -64,5 +69,14 @@ public class Timer : MonoBehaviour
         laser.enabled = true;
         posicaoTiros.enabled = true;
         playerMov.enabled = true;
+        bossMov.posicaoAtual = 0;
+        bossMov.posicaoDestino = 1;
+    }
+
+    public void MorteInimigo()
+    {
+        Destroy(typer);
+        playerMov.enabled = true;
+        mododeDano = false;
     }
 }

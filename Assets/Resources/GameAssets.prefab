@@ -40,9 +40,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4934048250578673755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6dfa63527845646b71787feee3d84e, type: 3}
+  m_Script: {fileID: 11500000, guid: 970f15baad5b8254191f12e6977a7de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pfDamagePopup: {fileID: 3136700545757041956, guid: 82b786e0e71e53441b979a6d85fa7265, type: 3}
   pfTyper: {fileID: 5178116196588506213, guid: 07c2b5c168090434683f05861a15c24c, type: 3}
-  pfTextTyper: {fileID: 4089252256488448795, guid: 7b350a26377757744a09535f8d5f2fe4, type: 3}

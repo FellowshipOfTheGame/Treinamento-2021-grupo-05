@@ -18,5 +18,4 @@ public class GameAssets : MonoBehaviour
 
     public Transform pfDamagePopup;
     public GameObject pfTyper;
-    public GameObject pfTextTyper;
 }
