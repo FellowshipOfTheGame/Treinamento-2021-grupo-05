@@ -7,8 +7,6 @@ TagManager:
   - Parede
   - Canvas
   - Inimigo
-  - respawn
-  - slider
   layers:
   - Default
   - TransparentFX
@@ -49,18 +47,21 @@ TagManager:
   - name: Buttons
     uniqueID: 1556774531
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: popup
     uniqueID: 2032223735
     locked: 0
+<<<<<<< Updated upstream
+=======
   - name: janela
     uniqueID: 3543742133
     locked: 0
   - name: laser
     uniqueID: 67880873
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
+>>>>>>> Stashed changes
   - name: UI
     uniqueID: 3583797487
     locked: 0

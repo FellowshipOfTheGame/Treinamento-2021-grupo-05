@@ -69,6 +69,7 @@ public class GerenciadoMenu : MonoBehaviour
         Application.Quit();
     }
 
+   
  
 
 }

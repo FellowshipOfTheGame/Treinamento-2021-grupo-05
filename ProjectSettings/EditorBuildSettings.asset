@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 2c642a47b6ee1994a9f109d681b5d3e0
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Rodrigo.unity
+    guid: 81f453a2fe8e58144a7b2a5d02ebacb0
   m_configObjects: {}
