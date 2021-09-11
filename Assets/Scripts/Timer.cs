@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     public float TempoPorTurno = 2f;
     [SerializeField] private Movimento_Inimigo bossMov;
     [SerializeField] private Posicao_Tiros posicaoTiros;
+    [SerializeField] private Laser laser;
     [SerializeField] private Transform player;
     [SerializeField] private Transform boss;
     [SerializeField] private Movimento playerMov;
@@ -15,7 +16,7 @@ public class Timer : MonoBehaviour
     private Vector3 posicaoOriginalBoss;
     private GameObject typer;
     private float tempoRestante;
-    private bool mododeDano = false;
+    public bool mododeDano = false;
 
     private void Start()
     {
@@ -34,12 +35,7 @@ public class Timer : MonoBehaviour
         if (tempoRestante <= 0)
         {
             tempoRestante = TempoPorTurno;
-            if (!mododeDano)
-            {
-                mododeDano = true;
-                MudarParaTyper();
-            }
-            else
+            if (mododeDano)
             {
                 mododeDano = false;
                 MudarParaBulletHell();
@@ -47,21 +43,25 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void MudarParaTyper()
+    public void MudarParaTyper()
     {
         typer = Instantiate(GameAssets.i.pfTyper);
         playerRB.velocity = Vector3.zero;
         player.position = (posicaoOriginalPlayer);
         boss.position = (posicaoOriginalBoss);
+        laser.enabled = false;
         bossMov.enabled = false;
         posicaoTiros.enabled = false;
         playerMov.enabled = false;
+
+        tempoRestante = TempoPorTurno;
     }
 
     private void MudarParaBulletHell()
     {
         Destroy(typer);
         bossMov.enabled = true;
+        laser.enabled = true;
         posicaoTiros.enabled = true;
         playerMov.enabled = true;
     }

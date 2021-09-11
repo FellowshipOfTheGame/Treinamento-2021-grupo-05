@@ -5,46 +5,56 @@ using UnityEngine;
 public class Movimento_Inimigo : MonoBehaviour
 {
     public float velocidadeMovimento;
-    [SerializeField] private Transform pontoA;
-    [SerializeField] private Transform pontoB;
+    [SerializeField] private Transform[] ponto;
+
+    private int posicaoAtual;
+    private int posicaoDestino;
+
     [SerializeField] private float dano;
     private Transform destino;
     private bool parar;
-    private float tempoEspera;
+    public float tempoEspera;
 
     void Awake()
     {
-        destino = pontoB;
+        destino = ponto[1];
+        posicaoAtual = 1;
+        posicaoDestino = 2;
     }
 
     void Update()
     {
-        //v += velocidadeMovimento * Time.deltaTime;
+        Mover();
+    }
+
+    private void Mover()
+    {
         if (parar)
             tempoEspera -= Time.deltaTime;
 
-        if (Vector2.Distance(transform.position, pontoB.position) == 0 && !parar)
-        {
-            destino = pontoA;
-            parar = true;
-        }
-
-        if (Vector2.Distance(transform.position, pontoA.position) == 0 && !parar)
-        {
-            destino = pontoB;
-            parar = true;
-        }
-
-        if(parar && tempoEspera<=0f)
-        {
+        if (tempoEspera <= 0)
             parar = false;
+
+        if (Vector2.Distance(transform.position, ponto[posicaoAtual].position) == 0 && !parar)
+        {
+            destino = ponto[posicaoDestino];
             tempoEspera = 1f;
+            parar = true;
+
+            if (posicaoAtual == ponto.Length - 1)
+                posicaoAtual = 0;
+            else
+                posicaoAtual++;
+
+            if (posicaoDestino == ponto.Length - 1)
+                posicaoDestino = 0;
+            else
+                posicaoDestino++;
         }
 
         if (!parar)
         {
             transform.position = Vector2.MoveTowards(transform.position, destino.position, velocidadeMovimento);
-            
         }
     }
 
@@ -52,5 +62,17 @@ public class Movimento_Inimigo : MonoBehaviour
     {
         if(collision.tag == "Player")
             collision.GetComponent<Vida>().Dano(dano);
+    }
+
+    public void Fase2()
+    {
+        tempoEspera *= 0.8f;
+        velocidadeMovimento *= 1.2f;
+    }
+
+    public void Fase3()
+    {
+        tempoEspera *= 0.7f;
+        velocidadeMovimento *= 1.3f;
     }
 }

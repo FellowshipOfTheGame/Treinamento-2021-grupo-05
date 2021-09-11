@@ -10,6 +10,9 @@ public class Posicao_Tiros : MonoBehaviour
 
     public GameObject[] carregado;
 
+    private Laser laserScript;
+    [SerializeField] private Timer timerScript;
+
     private float coolDown;
 
     [SerializeField] private float maxCooldown;
@@ -17,17 +20,53 @@ public class Posicao_Tiros : MonoBehaviour
     private int contadorAlternado = 0;
     private bool inicioCarregado = false;
 
+    private int contadorBurst = 0;
+    private int numTiros = 0;
+    [SerializeField] private int tirosMax;
+    private int numAtaques = 0;
 
-    void Start()
+    private bool fimAtaque = true;
+    int ataque;
+
+
+    void Awake()
     {
-        
+        laserScript = GetComponent<Laser>();
     }
 
     void Update()
     {
         coolDown -= Time.deltaTime;
-        AtaqueAlternado();
-        AtaqueCarregado();
+
+        if (fimAtaque)
+        {
+            ataque = Random.Range(0, 3);
+            fimAtaque = false;
+        }
+
+        if(!fimAtaque && numAtaques<= tirosMax-1)
+        {
+            switch(ataque)
+            {
+                case 0:
+                    AtaqueAlternado();
+                    break;
+                case 1:
+                    AtaqueBurst();
+                    break;
+                case 2:
+                    laserScript.Rand();
+                    break;
+                default:
+                    break;
+            }
+        }
+        else if(!fimAtaque && numAtaques == tirosMax)
+        {
+            AtaqueCarregado();
+            timerScript.MudarParaTyper();
+        }
+        //AtaqueCarregado();
     }
 
     private void AtaqueAlternado()
@@ -36,7 +75,9 @@ public class Posicao_Tiros : MonoBehaviour
         {
             if (contadorAlternado == 15)
             {
-                inicioCarregado = true;
+                contadorAlternado = 0;
+                fimAtaque = true;
+                numAtaques++;
                 return;
             }
 
@@ -68,6 +109,70 @@ public class Posicao_Tiros : MonoBehaviour
         }
     }
 
+    private void AtaqueBurst()
+    {
+        // falta criar o algoritmo para atirar varias balas seguidas
+
+        if (coolDown <= 0f)
+        {
+            if (contadorBurst == 6)
+            {
+                contadorBurst = 0;
+                fimAtaque = true;
+                numAtaques++;
+                return;
+            }
+
+            if (contadorBurst % 2 == 0)
+            {
+                if (numTiros < 3)
+                {
+                    inicioTiro(posicao[10], 10);
+                    inicioTiro(posicao[11], 11);
+                    inicioTiro(posicao[0], 0);
+
+                    inicioTiro(posicao[4], 4);
+                    inicioTiro(posicao[5], 5);
+                    inicioTiro(posicao[6], 6);
+
+                    numTiros++;
+
+                    coolDown = maxCooldown / 4;
+                }
+                else
+                {
+                    coolDown = maxCooldown;
+                    contadorBurst += 1;
+                    numTiros = 0;
+                }
+            }
+            else
+            {
+
+                if (numTiros < 3)
+                {
+                    inicioTiro(posicao[1], 1);
+                    inicioTiro(posicao[2], 2);
+                    inicioTiro(posicao[3], 3);
+
+                    inicioTiro(posicao[7], 7);
+                    inicioTiro(posicao[8], 8);
+                    inicioTiro(posicao[9], 9);
+
+                    numTiros++;
+
+                    coolDown = maxCooldown / 4;
+                }
+                else
+                {
+                    contadorBurst += 1;
+                    numTiros = 0;
+                    coolDown = maxCooldown;
+                }
+            }
+        }
+    }
+
     private void AtaqueCarregado()
     {
         if(coolDown <= 0f && inicioCarregado)
@@ -76,13 +181,22 @@ public class Posicao_Tiros : MonoBehaviour
             tiroCarregado(posicao[5], 5);
             tiroCarregado(posicao[8], 8);
             tiroCarregado(posicao[11], 11);
-            coolDown = 7f;
-            contadorAlternado = 0;
+            StartCoroutine(MudancaTyper());
         }
+    }
+
+    private IEnumerator MudancaTyper()
+    {
+        yield return new WaitForSeconds(4f);
+
+        numAtaques = 0;
+        timerScript.MudarParaTyper();
     }
 
     private void inicioTiro(Transform posicao, int num)
     {
+        // num representa a posicao de inicio do tiro, em que num = hora do relogio - 1
+
         bala[PoolTiros()].transform.position = posicao.position;
         bala[PoolTiros()].GetComponent<Tiros>().Ativar(num);
     }
