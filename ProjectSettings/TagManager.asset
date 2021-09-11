@@ -46,12 +46,18 @@ TagManager:
   - name: Background
     uniqueID: 894534605
     locked: 0
-  - name: UI
-    uniqueID: 3583797487
+  - name: popup
+    uniqueID: 2032223735
+    locked: 0
+  - name: janela
+    uniqueID: 3543742133
+    locked: 0
+  - name: laser
+    uniqueID: 67880873
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: popup
-    uniqueID: 2032223735
+  - name: UI
+    uniqueID: 3583797487
     locked: 0
