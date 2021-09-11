@@ -29,9 +29,9 @@ public class GerenciadorSom : MonoBehaviour
         creditos = Resources.Load<AudioClip>("Creditos");
         menu = Resources.Load<AudioClip>("Trilhasonorapause");
         botao = Resources.Load<AudioClip>("04-Som Select, stop, next");
-        boss1 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm fá maior");
-        boss2 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm fá maior");
-        boss3 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm fá maior");
+        boss1 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
+        boss2 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
+        boss3 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
 
         audioSource.volume = musicaVolume;
     }
