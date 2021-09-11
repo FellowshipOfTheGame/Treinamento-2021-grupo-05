@@ -9,6 +9,7 @@ public class Tiro_Carregado : MonoBehaviour
     [SerializeField] private float dano;
 
     [SerializeField] private float tempoAtivacao;
+    private float cooldownMax;
 
     public GameObject[] bala;
 
@@ -20,6 +21,7 @@ public class Tiro_Carregado : MonoBehaviour
     private void Awake()
     {
         colisao = GetComponent<CircleCollider2D>();
+        cooldownMax = tempoAtivacao;
     }
 
     private void Update()
@@ -32,7 +34,7 @@ public class Tiro_Carregado : MonoBehaviour
             {
                 inicioTiro(gameObject.transform, i);
             }
-
+            tempoAtivacao = cooldownMax;
             gameObject.SetActive(false);
         }
 
@@ -45,6 +47,10 @@ public class Tiro_Carregado : MonoBehaviour
     {
         if (collision.tag == "Parede")
         {
+            for (int i = 0; i < 6; i++)
+            {
+                inicioTiro(gameObject.transform, i);
+            }
             colisao.enabled = false;
             gameObject.SetActive(false);
         }

@@ -8,6 +8,7 @@ public class Laser : MonoBehaviour
     [SerializeField] private GameObject[] raio;
 
     private Inimigo iScript;
+    private Posicao_Tiros ptScript;
 
     private int ataque;
     private int contadorAtaque = 0;
@@ -25,6 +26,7 @@ public class Laser : MonoBehaviour
     private void Awake()
     {
         iScript = GetComponent<Inimigo>();
+        ptScript = GetComponent<Posicao_Tiros>();
         bancoPiscada = tempoPiscada;
     }
 
@@ -36,7 +38,13 @@ public class Laser : MonoBehaviour
             switch (ataque)
             {
                 case 0:
-                    LaserBeam();
+                    DentroParaFora();
+                    break;
+                case 1:
+                    ForaParaDentro();
+                    break;
+                case 2:
+                    Alternado();
                     break;
                 default:
                     break;
@@ -46,22 +54,61 @@ public class Laser : MonoBehaviour
 
     public void Rand()
     {
-        // n esta funcionando a reducao do tempo de piscada
-
-        /*if (iScript.Fase2 && !iScript.Fase3)
+        if (fimSequencia)
         {
-            tempoPiscada *= 0.9f;
+            ataque = Random.Range(0, 3);
+            fimSequencia = false;
         }
-        else if (iScript.Fase3)
-        {
-            tempoPiscada *= 0.8f;
-        }*/
-
-        ataque = Random.Range(0, 1);
-        fimSequencia = false;
     }
 
-    private void LaserBeam()
+    private void Alternado()
+    {
+        switch (contadorAtaque)
+        {
+            case 0:
+                Ataque(1, 3);
+                break;
+            case 1:
+                Ataque(2, -1);
+                break;
+            case 2:
+                Ataque(1, 3);
+                break;
+            case 3:
+                Ataque(0, 4);
+                break;
+            default:
+                contadorAtaque = 0;
+                fimSequencia = true;
+                tempoPiscada = bancoPiscada;
+                ptScript.numAtaques++;
+                break;
+        }
+    }
+
+    private void ForaParaDentro()
+    {
+        switch (contadorAtaque)
+        {
+            case 0:
+                Ataque(0, 4);
+                break;
+            case 1:
+                Ataque(1, 3);
+                break;
+            case 2:
+                Ataque(2, -1);
+                break;
+            default:
+                contadorAtaque = 0;
+                fimSequencia = true;
+                tempoPiscada = bancoPiscada;
+                ptScript.numAtaques++;
+                break;
+        }
+    }
+
+    private void DentroParaFora()
     {
         switch(contadorAtaque)
         {
@@ -78,6 +125,7 @@ public class Laser : MonoBehaviour
                 contadorAtaque = 0;
                 fimSequencia = true;
                 tempoPiscada = bancoPiscada;
+                ptScript.numAtaques++;
                 break;
         }
     }
@@ -123,10 +171,10 @@ public class Laser : MonoBehaviour
         {
             aviso[posAviso].SetActive(true);
 
-            yield return new WaitForSeconds(tempoPiscada / 2);
+            yield return new WaitForSeconds(tempoPiscada);
             aviso[posAviso].SetActive(false);
 
-            yield return new WaitForSeconds(tempoPiscada / 2);
+            yield return new WaitForSeconds(tempoPiscada);
         }
         fimPiscada = true;
     }

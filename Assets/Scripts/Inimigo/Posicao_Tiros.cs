@@ -11,6 +11,7 @@ public class Posicao_Tiros : MonoBehaviour
     public GameObject[] carregado;
 
     private Laser laserScript;
+    [SerializeField] private Respawn respawnScript;
     [SerializeField] private Timer timerScript;
 
     private float coolDown;
@@ -18,12 +19,12 @@ public class Posicao_Tiros : MonoBehaviour
     [SerializeField] private float maxCooldown;
 
     private int contadorAlternado = 0;
-    private bool inicioCarregado = false;
+    private bool inicioCarregado = true;
 
     private int contadorBurst = 0;
     private int numTiros = 0;
-    [SerializeField] private int tirosMax;
-    private int numAtaques = 0;
+    public int tirosMax;
+    public int numAtaques = 0;
 
     private bool fimAtaque = true;
     int ataque;
@@ -32,6 +33,7 @@ public class Posicao_Tiros : MonoBehaviour
     void Awake()
     {
         laserScript = GetComponent<Laser>();
+        respawnScript.bancoTirosMax = tirosMax;
     }
 
     void Update()
@@ -44,7 +46,7 @@ public class Posicao_Tiros : MonoBehaviour
             fimAtaque = false;
         }
 
-        if(!fimAtaque && numAtaques<= tirosMax-1)
+        if(!fimAtaque && numAtaques < tirosMax)
         {
             switch(ataque)
             {
@@ -64,9 +66,7 @@ public class Posicao_Tiros : MonoBehaviour
         else if(!fimAtaque && numAtaques == tirosMax)
         {
             AtaqueCarregado();
-            timerScript.MudarParaTyper();
         }
-        //AtaqueCarregado();
     }
 
     private void AtaqueAlternado()
@@ -175,8 +175,10 @@ public class Posicao_Tiros : MonoBehaviour
 
     private void AtaqueCarregado()
     {
-        if(coolDown <= 0f && inicioCarregado)
+        if (inicioCarregado)
         {
+            inicioCarregado = false;
+
             tiroCarregado(posicao[2], 2);
             tiroCarregado(posicao[5], 5);
             tiroCarregado(posicao[8], 8);
@@ -187,8 +189,10 @@ public class Posicao_Tiros : MonoBehaviour
 
     private IEnumerator MudancaTyper()
     {
+
         yield return new WaitForSeconds(4f);
 
+        inicioCarregado = true;
         numAtaques = 0;
         timerScript.MudarParaTyper();
     }
