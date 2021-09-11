@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GerenciadorCena : MonoBehaviour
 {
     public static GerenciadorCena instancia;
     private GerenciadorSom gerenciadorSom;
-    [SerializeField] private GameObject abertura;
-    [SerializeField] private GameObject imagemTrocaCena;
+    
 
     private void Awake()
     {
@@ -28,19 +26,29 @@ public class GerenciadorCena : MonoBehaviour
         gerenciadorSom = GerenciadorSom.instancia;
     }
 
-    public void IniciarGameScene()
+    public void IniciarGameScene(GameObject abertura, GameObject error)
     {
         gerenciadorSom.TocarEfeito("botao");
         abertura.SetActive(true);
 
+        StartCoroutine(Erro(error));
         StartCoroutine(Esperar());
+
+
     }
 
     private IEnumerator Esperar()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
-        imagemTrocaCena.SetActive(true);
         SceneManager.LoadScene("Rodrigo");
+    }
+    private IEnumerator Erro(GameObject error)
+    {
+        yield return new WaitForSeconds(1f);
+        gerenciadorSom.TocarEfeito("erro");
+
+
+        error.SetActive(true);
     }
 }

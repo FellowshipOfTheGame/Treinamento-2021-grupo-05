@@ -9,7 +9,7 @@ public class GerenciadorSom : MonoBehaviour
     private float musicaVolume = 1f;
     private float SFXVolume = 1f;
 
-    private AudioClip creditos, menu, botao, boss1, boss2, boss3; // musicas
+    private AudioClip creditos, menu, botao, erro, boss1, boss2, boss3; // musicas
     private AudioSource audioSource;
     private void Awake()
     {
@@ -29,9 +29,10 @@ public class GerenciadorSom : MonoBehaviour
         creditos = Resources.Load<AudioClip>("Creditos");
         menu = Resources.Load<AudioClip>("Trilhasonorapause");
         botao = Resources.Load<AudioClip>("04-Som Select, stop, next");
-        boss1 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
-        boss2 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
-        boss3 = Resources.Load<AudioClip>("Boss trilha 1 150 bpm");
+        boss1 = Resources.Load<AudioClip>("Boss trilha 1");
+        boss2 = Resources.Load<AudioClip>("Boss trilha 1");
+        boss3 = Resources.Load<AudioClip>("Boss trilha 1");
+        erro = Resources.Load<AudioClip>("Erro");
 
         audioSource.volume = musicaVolume;
     }
@@ -43,6 +44,9 @@ public class GerenciadorSom : MonoBehaviour
         {
             case "botao":
                 audioSource.PlayOneShot(botao, SFXVolume);
+                break;
+            case "erro":
+                audioSource.PlayOneShot(erro, SFXVolume);
                 break;
             default:
                 break;
