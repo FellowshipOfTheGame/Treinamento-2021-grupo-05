@@ -53,6 +53,15 @@ TagManager:
   - name: popup
     uniqueID: 2032223735
     locked: 0
+<<<<<<< Updated upstream
+=======
+  - name: janela
+    uniqueID: 3543742133
+    locked: 0
+  - name: laser
+    uniqueID: 67880873
+    locked: 0
+>>>>>>> Stashed changes
   - name: UI
     uniqueID: 3583797487
     locked: 0
