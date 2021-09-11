@@ -9,7 +9,10 @@ public class Vida : MonoBehaviour
 
     [SerializeField] private Image atual;
     [SerializeField] private float vidaTotal;
+    [SerializeField] private Text highScore;
+    [SerializeField] private Text atualScore;
     [SerializeField] private Animator anim;
+    private GerenciadorSom gerenciadorSom;
     private float vidaAtual;
 
     [SerializeField] private float iFrame;
@@ -19,6 +22,7 @@ public class Vida : MonoBehaviour
 
     private void Awake()
     {
+        gerenciadorSom = GerenciadorSom.instancia;
         anim = GetComponent<Animator>();
         atual.fillAmount = 1;
         vidaAtual = vidaTotal;
@@ -41,7 +45,11 @@ public class Vida : MonoBehaviour
 
         if(vidaAtual <= 0 && !morto)
         {
+            gerenciadorSom.Stop();
+            gerenciadorSom.TocarEfeito("lose");
             telaMorte.SetActive(true);
+            highScore.text = Score.highScore.ToString();
+            atualScore.text = Score.atualScore.ToString();
             Time.timeScale = 0;
             morto = true;
         }
