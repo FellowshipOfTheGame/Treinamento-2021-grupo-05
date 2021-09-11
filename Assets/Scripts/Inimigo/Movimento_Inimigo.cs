@@ -39,7 +39,6 @@ public class Movimento_Inimigo : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, destino.position, velocidadeMovimento);
         }
-        print(Vector2.Distance(transform.position, ponto[posicaoAtual % ponto.Length].position));
 
         if (Vector2.Distance(transform.position, ponto[posicaoAtual % ponto.Length].position) <= float.Epsilon && !parar)
         {
