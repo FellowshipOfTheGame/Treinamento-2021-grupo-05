@@ -9,12 +9,10 @@ public class Pausa : MonoBehaviour
     [SerializeField] private GerenciadorSom gerenciadorScript;
     private bool pausado = false;
 
-    private void Awake()
-    {
-        gerenciadorScript = FindObjectOfType<GerenciadorSom>();
-    }
+
     private void Start()
     {
+        gerenciadorScript = GerenciadorSom.instancia;
         menuPausa.SetActive(false);
     }
 
