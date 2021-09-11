@@ -12,32 +12,33 @@ public class Tiros : MonoBehaviour
     [SerializeField] private float dano;
     private GameObject inimigo;
     private GameObject temporizador;
-    private Posicao_Tiros pScript;
+    [SerializeField] private Respawn rScript;
+    public bool respawn = false;
     private Timer tScript;
     private Inimigo iScript;
 
     private float vX;
     private float vY;
 
-    private CircleCollider2D colisao;
+    private BoxCollider2D colisao;
 
     private void Awake()
     {
-        colisao = GetComponent<CircleCollider2D>();
+        colisao = GetComponent<BoxCollider2D>();
         inimigo = GameObject.Find("Inimigo");
-        pScript = inimigo.GetComponent<Posicao_Tiros>();
         temporizador = GameObject.Find("Timer");
         tScript = temporizador.GetComponent<Timer>();
         iScript = inimigo.GetComponent<Inimigo>();
 
-        bancoVelocidade = velocidadeTiro;
+        rScript.bancoVelocidadeTiros = velocidadeTiro;
+        iScript.ataqueOriginal = velocidadeTiro;
     }
 
     void Update()
     {
         if(tScript.mododeDano)
         {
-            velocidadeTiro = bancoVelocidade;
+            //velocidadeTiro = bancoVelocidade;
             gameObject.SetActive(false);
         }
 
@@ -50,14 +51,14 @@ public class Tiros : MonoBehaviour
     {
         if (collision.tag == "Parede")
         {
-            velocidadeTiro = bancoVelocidade;
+            velocidadeTiro = rScript.bancoVelocidadeTiros;
             colisao.enabled = false;
             gameObject.SetActive(false);
         }
         // dano
         if (collision.tag == "Player")
         {
-            velocidadeTiro = bancoVelocidade;
+            velocidadeTiro = rScript.bancoVelocidadeTiros;
             collision.GetComponent<Vida>().Dano(dano);
             colisao.enabled = false;
             gameObject.SetActive(false);
@@ -80,14 +81,7 @@ public class Tiros : MonoBehaviour
 
     private void vEixo(int posicao)
     {
-        if (iScript.Fase2 && !iScript.Fase3)
-        {
-            velocidadeTiro *= 1.3f;
-        }
-        else if (iScript.Fase3)
-        {
-            velocidadeTiro *= 1.8f;
-        }
+        velocidadeTiro = rScript.bancoVelocidadeTiros;
 
         switch (posicao)
         {
@@ -154,10 +148,7 @@ public class Tiros : MonoBehaviour
 
     private void Cabum(int posicao)
     {
-        if (iScript.Fase2)
-        {
-            velocidadeTiro *= 1.3f;
-        }
+        velocidadeTiro = rScript.bancoVelocidadeTiros;
 
         switch (posicao)
         {
