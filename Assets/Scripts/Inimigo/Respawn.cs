@@ -12,7 +12,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject inimigo;
     [SerializeField] private Transform pontoRespawn;
     [SerializeField] private Transform destino;
-    [SerializeField] private GerenciadorSom gerenciadorScript;
+     private GerenciadorSom gerenciadorScript;
     [SerializeField] private Score scoreScript;
     private Posicao_Tiros posicaoScript;
     private Movimento_Inimigo movimentoScript;
@@ -22,7 +22,10 @@ public class Respawn : MonoBehaviour
     private Inimigo inimigoScript;
     private bool isParado = true;
 
-
+    private void Awake()
+    {
+        gerenciadorScript = FindObjectOfType<GerenciadorSom>();
+    }
     void Start()
     {
         scoreScript.Carregar();
@@ -31,7 +34,7 @@ public class Respawn : MonoBehaviour
         atual.text = Score.atualScore.ToString();
         high.text = Score.highScore.ToString();
 
-        gerenciadorScript.TrocarMusica("boss1");
+       gerenciadorScript.TrocarMusica("boss1");
 
         posicaoScript = inimigo.GetComponent<Posicao_Tiros>();
         movimentoScript = inimigo.GetComponent<Movimento_Inimigo>();

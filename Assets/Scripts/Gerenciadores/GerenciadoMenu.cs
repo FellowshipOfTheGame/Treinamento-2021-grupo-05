@@ -10,15 +10,30 @@ public class GerenciadoMenu : MonoBehaviour
     [SerializeField] private GameObject creditoCanvas = null;
     [SerializeField] private GameObject configuracoesPanel = null;
     [SerializeField] private Slider musicaSlider;
+    [SerializeField] private GameObject abertura;
+    [SerializeField] private GameObject error;
     [SerializeField] private Slider SFXSlider;
     private GerenciadorSom gerenciadorSom;
+    private GerenciadorCena cenaScript;
+
+    private void Awake()
+    {
+        cenaScript = GetComponent<GerenciadorCena>();
+    }
     void Start()
     {
+        Time.timeScale = 1f;
+        cenaScript = GerenciadorCena.instancia;
         gerenciadorSom = GerenciadorSom.instancia;
         musicaSlider.value = PlayerPref.GetMusicVolume();
         SFXSlider.value = PlayerPref.GetSFXVolume();
+        gerenciadorSom.TrocarMusica("menu");
+   
     }
-
+    public void BotaoStart()
+    {
+        cenaScript.IniciarGameScene(abertura, error);
+    }
     private void Update()
     {
         
