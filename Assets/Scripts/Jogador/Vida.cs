@@ -9,6 +9,7 @@ public class Vida : MonoBehaviour
 
     [SerializeField] private Image atual;
     [SerializeField] private float vidaTotal;
+    [SerializeField] private Animator anim;
     private float vidaAtual;
 
     [SerializeField] private float iFrame;
@@ -18,6 +19,7 @@ public class Vida : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         atual.fillAmount = 1;
         vidaAtual = vidaTotal;
     }
@@ -34,8 +36,7 @@ public class Vida : MonoBehaviour
     {
         if(invencibilidade>iFrame)
         {
-            vidaAtual = Mathf.Clamp(vidaAtual - _dano, 0, vidaTotal);
-            invencibilidade = 0f;
+            StartCoroutine(AnimacaoDano(_dano));
         }
 
         if(vidaAtual <= 0 && !morto)
@@ -44,5 +45,14 @@ public class Vida : MonoBehaviour
             Time.timeScale = 0;
             morto = true;
         }
+    }
+
+    private IEnumerator AnimacaoDano(float _dano)
+    {
+        anim.Play("dano");
+        vidaAtual = Mathf.Clamp(vidaAtual - _dano, 0, vidaTotal);
+        invencibilidade = 0f;
+        yield return new WaitForSeconds(1f);
+        anim.Play("idle");
     }
 }
