@@ -16,7 +16,7 @@ public class Clouds : MonoBehaviour
 
     void Update()
     {
-        float modificador = inicialPosVal - velocidade;
+        float modificador = inicialPosVal - (velocidade * Time.deltaTime);
         inicialPosVal = modificador;
         transform.position = new Vector3(modificador, transform.position.y, transform.position.y);
 

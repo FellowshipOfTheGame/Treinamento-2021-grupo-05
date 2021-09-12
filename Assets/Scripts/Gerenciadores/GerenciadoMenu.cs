@@ -11,7 +11,6 @@ public class GerenciadoMenu : MonoBehaviour
     [SerializeField] private GameObject configuracoesPanel = null;
     [SerializeField] private Slider musicaSlider;
     [SerializeField] private GameObject abertura;
-    [SerializeField] private GameObject tutorial;
     [SerializeField] private GameObject error;
     [SerializeField] private Slider SFXSlider;
     private GerenciadorSom gerenciadorSom;
@@ -50,14 +49,10 @@ public class GerenciadoMenu : MonoBehaviour
         error.SetActive(true);
         gerenciadorSom.TocarEfeito("erro");
         yield return new WaitForSeconds(1f);
-        tutorial.SetActive(true);
+        cenaScript.IniciarGameScene();
 
     }
-    private void Update()
-    {
-        
-        
-    }
+ 
     public void BotaoCredito()
     {
         gerenciadorSom.TocarEfeito("botao");

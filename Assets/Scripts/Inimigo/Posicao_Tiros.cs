@@ -178,7 +178,6 @@ public class Posicao_Tiros : MonoBehaviour
         if (inicioCarregado)
         {
             inicioCarregado = false;
-            print("aqui");
 
             tiroCarregado(posicao[2], 2);
             tiroCarregado(posicao[5], 5);

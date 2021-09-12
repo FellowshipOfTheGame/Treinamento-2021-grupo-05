@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Transform boss;
     [SerializeField] private Movimento playerMov;
     [SerializeField] private Rigidbody2D playerRB;
+    [SerializeField] private Animator inimigoAnimacao;
     private Vector3 posicaoOriginalPlayer;
     private Vector3 posicaoOriginalBoss;
     private GameObject typer;
@@ -49,6 +51,7 @@ public class Timer : MonoBehaviour
 
     public void MudarParaTyper()
     {
+        inimigoAnimacao.SetBool("CombateOn", true);
         typer = Instantiate(GameAssets.i.pfTyper);
         playerRB.velocity = Vector3.zero;
         player.position = (posicaoOriginalPlayer);
@@ -64,6 +67,7 @@ public class Timer : MonoBehaviour
 
     private void MudarParaBulletHell()
     {
+        inimigoAnimacao.SetBool("CombateOn", false);
         Destroy(typer);
         bossMov.enabled = true;
         laser.enabled = true;

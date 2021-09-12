@@ -10,6 +10,7 @@ public class StarTimer : MonoBehaviour
     [SerializeField] private Posicao_Tiros posicaoTiros;
     [SerializeField] private Laser laser;
     [SerializeField] private Movimento playerMov;
+    [SerializeField] private GameObject telaTutorial;
 
     public bool mododeDano = false;
     private int contador = 3;
@@ -21,7 +22,7 @@ public class StarTimer : MonoBehaviour
     }
     void Start()
     {
-        
+        Time.timeScale = 0f;
     }
 
    private IEnumerator Contador()
@@ -46,5 +47,11 @@ public class StarTimer : MonoBehaviour
 
         contadorTexto.gameObject.SetActive(false);
 
+    }
+
+    public void FecharTutorial()
+    {
+        Time.timeScale = 1f;
+        telaTutorial.SetActive(false);
     }
 }
