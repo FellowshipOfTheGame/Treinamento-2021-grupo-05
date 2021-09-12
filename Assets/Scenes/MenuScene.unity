@@ -1058,7 +1058,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1841733371}
         m_TargetAssemblyTypeName: FullScreen, Assembly-CSharp
         m_MethodName: ChangeScreenMode
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1067,7 +1067,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &413829297
 GameObject:
   m_ObjectHideFlags: 0
