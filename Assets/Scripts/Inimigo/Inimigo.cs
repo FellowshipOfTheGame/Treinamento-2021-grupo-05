@@ -75,6 +75,7 @@ public class Inimigo : MonoBehaviour
         if (vida <= 0)
         {
             // inserir animacao de morte
+            gerenciadorSom.TocarEfeito("bossmorto");
             respawnScript.numInimigosMortos++;
             respawnScript.isMorto = true;
             //posicaoScript.tirosMax = respawnScript.bancoTirosMax + (respawnScript.numInimigosMortos);

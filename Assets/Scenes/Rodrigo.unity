@@ -2740,7 +2740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   telaMorte: {fileID: 1882848337}
   atual: {fileID: 854288372}
-  vidaTotal: 1
+  vidaTotal: 10
   highScore: {fileID: 1114513614}
   atualScore: {fileID: 789657656}
   anim: {fileID: 0}
