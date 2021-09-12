@@ -6,23 +6,27 @@ using UnityEngine.UI;
 public class FullScreen : MonoBehaviour
 {
     [SerializeField] private Toggle marcador;
-    public bool fullScreen;
+    [SerializeField] private bool fullScreen;
+
 
     private void Start()
     {
         fullScreen = PlayerPref.GetScreenMode();
-        Screen.fullScreen = fullScreen;
+        ChangeScreenMode(fullScreen);
         marcador.isOn = fullScreen;
     }
-    public void ChangeScreenMode()
+    public void ChangeScreenMode(bool mode)
     {
-        fullScreen = !fullScreen;
+        fullScreen = mode;
         PlayerPref.SetScreenMode(fullScreen);
-        Screen.fullScreen = fullScreen;
-    }
-
-    private void Awake()
-    {
+        if (fullScreen)
+        {
+            Screen.SetResolution(1920, 1080, fullScreen);
+        }
+        else
+        {
+            Screen.SetResolution(1040, 585, fullScreen);
+        }
         
     }
 }
