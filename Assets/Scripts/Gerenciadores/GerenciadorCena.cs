@@ -26,29 +26,10 @@ public class GerenciadorCena : MonoBehaviour
         gerenciadorSom = GerenciadorSom.instancia;
     }
 
-    public void IniciarGameScene(GameObject abertura, GameObject error)
+    public void IniciarGameScene()
     {
-        gerenciadorSom.TocarEfeito("botao");
-        abertura.SetActive(true);
-
-        StartCoroutine(Erro(error));
-        StartCoroutine(Esperar());
-
-
-    }
-
-    private IEnumerator Esperar()
-    {
-        yield return new WaitForSeconds(2f);
-
         SceneManager.LoadScene("Rodrigo");
     }
-    private IEnumerator Erro(GameObject error)
-    {
-        yield return new WaitForSeconds(1f);
-        gerenciadorSom.TocarEfeito("erro");
 
-
-        error.SetActive(true);
-    }
+    
 }

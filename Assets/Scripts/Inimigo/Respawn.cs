@@ -24,12 +24,11 @@ public class Respawn : MonoBehaviour
 
     private void Awake()
     {
-        gerenciadorScript = FindObjectOfType<GerenciadorSom>();
     }
     void Start()
     {
         scoreScript.Carregar();
-
+        gerenciadorScript = GerenciadorSom.instancia;
         Score.atualScore = numInimigosMortos;
         atual.text = Score.atualScore.ToString();
         high.text = Score.highScore.ToString();

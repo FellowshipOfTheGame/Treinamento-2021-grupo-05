@@ -24,22 +24,22 @@ public class Pausa : MonoBehaviour
             pausado = !pausado;
             gerenciadorScript.TocarEfeito("botao");
 
-           
+            if (pausado)
+            {
+
+                menuPausa.SetActive(true);
+                // para o tempo
+                Time.timeScale = 0f;
+            }
+            else
+            {
+
+                menuPausa.SetActive(false);
+                Time.timeScale = 1f;
+            }
 
         }
-        if (pausado)
-        {
-
-            menuPausa.SetActive(true);
-            // para o tempo
-            Time.timeScale = 0f;
-        }
-        else
-        {
-
-            menuPausa.SetActive(false);
-            Time.timeScale = 1f;
-        }
+       
 
 
 
@@ -48,6 +48,8 @@ public class Pausa : MonoBehaviour
     public void Voltar()
     {
         gerenciadorScript.TocarEfeito("botao");
+        menuPausa.SetActive(false);
+        Time.timeScale = 1f;
         pausado = false;
     }
 
