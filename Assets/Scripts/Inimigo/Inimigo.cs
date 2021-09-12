@@ -15,6 +15,7 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private Timer timerScript;
     [SerializeField] private Posicao_Tiros posicaoScript;
     [SerializeField] private PopupDano popup;
+    private GerenciadorSom gerenciadorSom;
 
     public bool Fase1 = false;
     public bool Fase2 = false;
@@ -22,10 +23,19 @@ public class Inimigo : MonoBehaviour
 
     void Start()
     {
+        gerenciadorSom = GerenciadorSom.instancia;
         gerenciadorRespawn = GameObject.FindGameObjectWithTag("respawn");
         respawnScript = gerenciadorRespawn.GetComponent<Respawn>();
         bossVida.DefinirVidaMax(vida);
         vidaTotal = vida + 10*respawnScript.numInimigosMortos;
+        if(vidaTotal >= vida * 2)
+        {
+            gerenciadorSom.TrocarMusicaBoss("boss2");
+        }
+        else if(vidaTotal >= vida * 3)
+        {
+            gerenciadorSom.TrocarMusicaBoss("boss3");
+        }
     }
 
 
@@ -41,14 +51,14 @@ public class Inimigo : MonoBehaviour
             bossVida.DefinirVidaMax(vida);
             bossVida.DefinirVida(vida);
         }
-        if (vida <= 2 * vidaTotal/3 && !Fase2)
+        else if (vida <= 2 * vidaTotal/3 && !Fase2)
         {
             Fase2 = true;
             respawnScript.bancoVelocidadeTiros *= 1.1f;
             posicaoScript.tirosMax++;
             GetComponent<Movimento_Inimigo>().Fase2();
         }
-        if (vida <= vidaTotal/3 && !Fase3)
+        else if (vida <= vidaTotal/3 && !Fase3)
         {
             Fase3 = true;
             respawnScript.bancoVelocidadeTiros *= 1.3f;

@@ -11,6 +11,7 @@ public class GerenciadoMenu : MonoBehaviour
     [SerializeField] private GameObject configuracoesPanel = null;
     [SerializeField] private Slider musicaSlider;
     [SerializeField] private GameObject abertura;
+    [SerializeField] private GameObject tutorial;
     [SerializeField] private GameObject error;
     [SerializeField] private Slider SFXSlider;
     private GerenciadorSom gerenciadorSom;
@@ -30,9 +31,27 @@ public class GerenciadoMenu : MonoBehaviour
         gerenciadorSom.TrocarMusica("menu");
    
     }
+
+    public void BotaoStartGO()
+    {
+        cenaScript.IniciarGameScene();
+    }
     public void BotaoStart()
     {
-        cenaScript.IniciarGameScene(abertura, error);
+        gerenciadorSom.TocarEfeito("botao");
+        abertura.SetActive(true);
+
+        StartCoroutine(Erro(error));
+    }
+
+    private IEnumerator Erro(GameObject error)
+    {
+        yield return new WaitForSeconds(1f);
+        error.SetActive(true);
+        gerenciadorSom.TocarEfeito("erro");
+        yield return new WaitForSeconds(1f);
+        tutorial.SetActive(true);
+
     }
     private void Update()
     {
@@ -83,6 +102,7 @@ public class GerenciadoMenu : MonoBehaviour
         Debug.Log("Sair do jogo");
         Application.Quit();
     }
+
 
    
  

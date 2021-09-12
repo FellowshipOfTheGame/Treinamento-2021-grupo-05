@@ -46,7 +46,7 @@ public class Vida : MonoBehaviour
         if(vidaAtual <= 0 && !morto)
         {
             gerenciadorSom.Stop();
-            gerenciadorSom.TocarEfeito("lose");
+            gerenciadorSom.TrocarMusica("lose");
             telaMorte.SetActive(true);
             highScore.text = Score.highScore.ToString();
             atualScore.text = Score.atualScore.ToString();

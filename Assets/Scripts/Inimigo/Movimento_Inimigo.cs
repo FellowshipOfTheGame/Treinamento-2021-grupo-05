@@ -37,7 +37,7 @@ public class Movimento_Inimigo : MonoBehaviour
 
         if (!parar)
         {
-            transform.position = Vector2.MoveTowards(transform.position, destino.position, velocidadeMovimento);
+            transform.position = Vector2.MoveTowards(transform.position, destino.position, velocidadeMovimento * Time.deltaTime);
         }
 
         if (Vector2.Distance(transform.position, ponto[posicaoAtual % ponto.Length].position) <= float.Epsilon && !parar)
