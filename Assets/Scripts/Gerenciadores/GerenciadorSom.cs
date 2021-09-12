@@ -109,17 +109,17 @@ public class GerenciadorSom : MonoBehaviour
         {
             case "boss1":
                 audioSource.clip = boss1;
-                audioSource.time = tempo;
+                audioSource.time = Mathf.Min(tempo, boss1.length - 1f);
                 audioSource.Play();
                 break;
             case "boss2":
                 audioSource.clip = boss2;
-                audioSource.time = tempo;
+                audioSource.time = Mathf.Min(tempo, boss2.length - 1f);
                 audioSource.Play();
                 break;
             case "boss3":
                 audioSource.clip = boss3;
-                audioSource.time = tempo;
+                audioSource.time = Mathf.Min(tempo, boss3.length - 1f);
                 audioSource.Play();
                 break;
             default:

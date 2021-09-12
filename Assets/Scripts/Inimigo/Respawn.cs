@@ -51,7 +51,7 @@ public class Respawn : MonoBehaviour
 
     private void Mover()
     {
-        inimigo.transform.position = Vector2.MoveTowards(inimigo.transform.position, destino.position, 0.004f);
+        inimigo.transform.position = Vector2.MoveTowards(inimigo.transform.position, destino.position, 2f * Time.deltaTime);
         if (inimigo.transform.position == destino.position)
             isParado = true;
     }

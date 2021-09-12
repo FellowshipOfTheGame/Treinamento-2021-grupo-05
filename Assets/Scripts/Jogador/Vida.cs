@@ -12,6 +12,7 @@ public class Vida : MonoBehaviour
     [SerializeField] private Text highScore;
     [SerializeField] private Text atualScore;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject telaMorteUI;
     private GerenciadorSom gerenciadorSom;
     private float vidaAtual;
 
@@ -48,13 +49,19 @@ public class Vida : MonoBehaviour
             gerenciadorSom.Stop();
             gerenciadorSom.TrocarMusica("lose");
             telaMorte.SetActive(true);
+            StartCoroutine(Shutdown());
             highScore.text = Score.highScore.ToString();
             atualScore.text = Score.atualScore.ToString();
-            Time.timeScale = 0;
             morto = true;
         }
     }
 
+    private IEnumerator Shutdown()
+    {
+        yield return new WaitForSeconds(1f);
+        telaMorteUI.SetActive(true);
+        Time.timeScale = 0;
+    }
     private IEnumerator AnimacaoDano(float _dano)
     {
         anim.Play("dano");

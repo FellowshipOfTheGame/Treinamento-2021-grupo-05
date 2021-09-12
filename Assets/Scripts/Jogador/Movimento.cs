@@ -21,6 +21,6 @@ public class Movimento : MonoBehaviour
         inputHorizontal = Input.GetAxis("Horizontal");
         inputVertical = Input.GetAxis("Vertical");
 
-        body.velocity = new Vector2(inputHorizontal * velocidade, inputVertical * velocidade);
+        body.velocity = new Vector2(inputHorizontal * velocidade * Time.deltaTime, inputVertical * velocidade * Time.deltaTime);
     }
 }

@@ -15,6 +15,7 @@ public class Inimigo : MonoBehaviour
     [SerializeField] private Timer timerScript;
     [SerializeField] private Posicao_Tiros posicaoScript;
     [SerializeField] private PopupDano popup;
+    [SerializeField] private Animator inimigoAnimacao;
     private GerenciadorSom gerenciadorSom;
 
     public bool Fase1 = false;
@@ -28,14 +29,6 @@ public class Inimigo : MonoBehaviour
         respawnScript = gerenciadorRespawn.GetComponent<Respawn>();
         bossVida.DefinirVidaMax(vida);
         vidaTotal = vida + 10*respawnScript.numInimigosMortos;
-        if(vidaTotal >= vida * 2)
-        {
-            gerenciadorSom.TrocarMusicaBoss("boss2");
-        }
-        else if(vidaTotal >= vida * 3)
-        {
-            gerenciadorSom.TrocarMusicaBoss("boss3");
-        }
     }
 
 
@@ -43,16 +36,26 @@ public class Inimigo : MonoBehaviour
     {
         if (vida == vidaTotal && !Fase1)
         {
+            inimigoAnimacao.SetBool("Fase1", true);
+            inimigoAnimacao.SetBool("Fase2", false);
+            inimigoAnimacao.SetBool("Fase3", false);
+
+            gerenciadorSom.TrocarMusicaBoss("boss1");
             Fase1 = true;
             Fase2 = false;
             Fase3 = false;
             respawnScript.bancoVelocidadeTiros = ataqueOriginal + ataqueOriginal * 0.1f * respawnScript.numInimigosMortos;
-            posicaoScript.tirosMax = respawnScript.bancoTirosMax + (respawnScript.numInimigosMortos);
+            posicaoScript.tirosMax = respawnScript.bancoTirosMax + (respawnScript.numInimigosMortos/3);
             bossVida.DefinirVidaMax(vida);
             bossVida.DefinirVida(vida);
         }
         else if (vida <= 2 * vidaTotal/3 && !Fase2)
         {
+            inimigoAnimacao.SetBool("Fase1", false);
+            inimigoAnimacao.SetBool("Fase2", true);
+            inimigoAnimacao.SetBool("Fase3", false);
+
+            gerenciadorSom.TrocarMusicaBoss("boss2");
             Fase2 = true;
             respawnScript.bancoVelocidadeTiros *= 1.1f;
             posicaoScript.tirosMax++;
@@ -60,6 +63,11 @@ public class Inimigo : MonoBehaviour
         }
         else if (vida <= vidaTotal/3 && !Fase3)
         {
+            inimigoAnimacao.SetBool("Fase1", false);
+            inimigoAnimacao.SetBool("Fase2", false);
+            inimigoAnimacao.SetBool("Fase3", true);
+
+            gerenciadorSom.TrocarMusicaBoss("boss3");
             Fase3 = true;
             respawnScript.bancoVelocidadeTiros *= 1.3f;
             posicaoScript.tirosMax++;
