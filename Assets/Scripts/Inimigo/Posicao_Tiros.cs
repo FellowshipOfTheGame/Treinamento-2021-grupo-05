@@ -26,7 +26,7 @@ public class Posicao_Tiros : MonoBehaviour
     public int tirosMax;
     public int numAtaques = 0;
 
-    private bool fimAtaque = true;
+    public bool fimAtaque = true;
     int ataque;
 
 

@@ -82,6 +82,7 @@ public class Laser : MonoBehaviour
                 fimSequencia = true;
                 tempoPiscada = bancoPiscada;
                 ptScript.numAtaques++;
+                ptScript.fimAtaque = true;
                 break;
         }
     }
@@ -104,6 +105,7 @@ public class Laser : MonoBehaviour
                 fimSequencia = true;
                 tempoPiscada = bancoPiscada;
                 ptScript.numAtaques++;
+                ptScript.fimAtaque = true;
                 break;
         }
     }
@@ -126,6 +128,7 @@ public class Laser : MonoBehaviour
                 fimSequencia = true;
                 tempoPiscada = bancoPiscada;
                 ptScript.numAtaques++;
+                ptScript.fimAtaque = true;
                 break;
         }
     }

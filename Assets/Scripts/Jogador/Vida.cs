@@ -58,7 +58,7 @@ public class Vida : MonoBehaviour
 
     private IEnumerator Shutdown()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         telaMorteUI.SetActive(true);
         Time.timeScale = 0;
     }
