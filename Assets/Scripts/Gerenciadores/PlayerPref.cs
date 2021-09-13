@@ -10,6 +10,7 @@ public class PlayerPref : MonoBehaviour
 
     const float MIN_VOLUME = 0f;
     const float MAX_VOLUME = 1f;
+    const string HIGH_SCORE_KEY = "HIGH SCORE";
 
     public static void SetMusicVolume(float volume)
     {
@@ -26,7 +27,7 @@ public class PlayerPref : MonoBehaviour
 
     public static void SetScreenMode(bool mode)
     {
-        if(mode)
+        if (mode)
         {
             PlayerPrefs.SetInt(FULL_SCREEN, 1);
         }
@@ -34,7 +35,7 @@ public class PlayerPref : MonoBehaviour
         {
             PlayerPrefs.SetInt(FULL_SCREEN, 0);
         }
-        
+
     }
 
     public static bool GetScreenMode()
@@ -70,5 +71,15 @@ public class PlayerPref : MonoBehaviour
     public static float GetSFXVolume()
     {
         return PlayerPrefs.GetFloat(SFX_VOLUME_KEY, 1f);
+    }
+
+    public static int GetScore()
+    {
+        return PlayerPrefs.GetInt(HIGH_SCORE_KEY, 0);
+    }
+
+    public static void SetScore(int score)
+    {
+        PlayerPrefs.SetInt(HIGH_SCORE_KEY, score);
     }
 }

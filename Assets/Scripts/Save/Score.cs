@@ -9,15 +9,12 @@ public class Score : MonoBehaviour
 
     public void Salvar()
     {
-        SalvarData.SaveScore(this);
+        PlayerPref.SetScore(highScore);
     }
 
     public void Carregar()
     {
-        int[] loadScore = SalvarData.LoadScore();
-
-        highScore = loadScore[0];
-        atualScore = loadScore[1];
+        highScore = PlayerPref.GetScore();
     }
     void Start()
     {
@@ -27,6 +24,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
